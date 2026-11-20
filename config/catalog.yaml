@@ -1,0 +1,21 @@
+# Rightsizing rules and a small instance catalog.
+# Sizes in each family are ordered smallest to largest; "one size down"
+# means the previous entry in the list. Edit freely.
+
+thresholds:
+  lookback_days: 14
+  period_seconds: 3600    # one datapoint per hour (hourly Maximum)
+  percentile: 95
+  min_datapoints: 72      # need at least 3 days of hourly data
+  cpu:
+    low: 20               # p95 below this (and memory low) -> one size down
+    high: 80              # p95 above this -> one size up
+  memory:
+    low: 30
+    high: 85
+
+families:
+  t3: [t3.micro, t3.small, t3.medium, t3.large, t3.xlarge, t3.2xlarge]
+  m5: [m5.large, m5.xlarge, m5.2xlarge, m5.4xlarge, m5.8xlarge]
+  c5: [c5.large, c5.xlarge, c5.2xlarge, c5.4xlarge]
+  r5: [r5.large, r5.xlarge, r5.2xlarge, r5.4xlarge]
