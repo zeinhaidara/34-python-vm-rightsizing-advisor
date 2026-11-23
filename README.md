@@ -17,6 +17,11 @@ Markdown table and never changes anything.
 > Write a tool that rightsizes EC2/Azure VMs by comparing CloudWatch/Azure
 > Monitor CPU/memory utilization against instance type recommendations.
 
+Why it matters: instances are usually sized by a guess at launch and rarely
+looked at again, so many run far below what they pay for. Comparing real CPU
+and memory use with the next size down or up gives a short list of changes
+someone can review.
+
 ## How it works
 
 ```mermaid
